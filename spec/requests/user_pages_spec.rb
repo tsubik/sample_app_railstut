@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe "User pages" do
@@ -23,9 +24,9 @@ describe "User pages" do
  		describe "with valid information" do
  			before do
  				fill_in "Name", with: "Tomasz Subik"
- 				fill_in "Email", with: "tsubik@gmail.com"
- 				fill_in "Password", with: "z dupy"
- 				fill_in "Confirmation", with: "z dupy"
+ 				fill_in "Email", with: "tsubik@gmail22.com"
+ 				fill_in "Password", with: "tojesthaslo"
+ 				fill_in "Confirmation", with: "tojesthaslo"
  			end
 
  			it "should create a user" do
