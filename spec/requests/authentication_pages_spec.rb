@@ -107,15 +107,15 @@ describe "Authentication" do
 				let(:user) { FactoryGirl.create(:user) }
 				let(:wrong_user) { FactoryGirl.create(:user, email:"wrong@example.com") }
 
-				before { sign_in user }
+				before { sign_in wrong_user }
 
 				describe "visiting Users#edit path" do
-					before { visit edit_user_path(wrong_user) }
+					before { visit edit_user_path(user) }
 					it { should_not have_selector('title', text: full_title('Edit user'))}
 				end
 
 				describe "submitting a PUT request to the Users#update action" do
-					before { put user_path(wrong_user) }
+					before { put user_path(user) }
 					specify { response.should redirect_to(root_path) }
 				end
 			end

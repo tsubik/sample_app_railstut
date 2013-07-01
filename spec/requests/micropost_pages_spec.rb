@@ -41,4 +41,22 @@ describe "Micropost pages" do
     end
   end
 
+  describe "user micropost sidebar count" do
+    before do 
+      3.times { FactoryGirl.create(:micropost, user: user) }
+      visit root_path 
+    end
+
+    it { should have_content "3 microposts" }
+  end
+
+  describe "user micropost pagination" do
+    before do 
+      63.times { FactoryGirl.create(:micropost, user: user) }
+      visit root_path 
+    end
+
+    it { should have_css('div.pagination') }
+  end
+
 end
